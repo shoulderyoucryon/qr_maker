@@ -51,7 +51,7 @@ def main() -> None:
 
     elif args.template:
 
-        qr = QRGenerator(fm)
+        qr = QRGenerator(fm, is_super=args.super)
         merchants = fm.read_file(BASE_FILE_PATH)
         report = ReportGenerator(fm)
 
@@ -65,8 +65,7 @@ def main() -> None:
 
         runner = GenerationRunner(fm, report, qr,
                                   template=template,
-                                  positions=positions,
-                                  is_super=args.super)
+                                  positions=positions)
         runner.run(merchants, mode='template')
 
     elif args.clean:

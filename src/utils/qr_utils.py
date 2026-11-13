@@ -17,17 +17,3 @@ def create_custom_qr(data: str, size: int, border: int) -> qrcode.image.base.Bas
     img = qr.make_image(fill_color=FILL_COLOR, back_color=BACK_COLOR)
     return img
 
-
-def create_small_qr(data: str, size: int, border: int) -> qrcode.image.base.BaseImage:
-    qr = qrcode.QRCode(
-        version=None,
-        error_correction=ERROR_CORRECT_H,
-        size=size,
-        border=border
-    )
-
-    qr.add_data(data)
-    qr.make(fit=True)
-
-    img = qr.make_image(fill_color='black', back_color='white')
-    return img
